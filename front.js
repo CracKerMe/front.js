@@ -1,4 +1,6 @@
-var front = function(source, target, template) {
+;function front(source, target, template) {
+  "use strict";
+
   var data = Array.isArray(source) ? source : [source];
   var html = "";
 
