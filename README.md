@@ -13,4 +13,4 @@ front.js
 
 **Try out the demos**
 
-+ http://myst729.github.com/front.js/demo.html
++ http://myst729.github.io/front.js/demo.html
