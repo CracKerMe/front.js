@@ -15,4 +15,10 @@
   });
 
   target.innerHTML = html;
-};
+}
+
+if(typeof define == "function") {
+  define('front.js/front', [], function() {
+    return { parse: front };
+  });
+}
