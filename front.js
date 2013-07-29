@@ -1,24 +1,43 @@
-;function front(source, target, template) {
+;function front(templateString, sourceData, targetNode) {
   "use strict";
 
-  var data = Array.isArray(source) ? source : [source];
-  var html = "";
+  var dataArray = Array.isArray(sourceData) ? sourceData : [sourceData];
+  var htmlString = "";
 
-  data.forEach(function(el) {
-    var tmpl = template.replace(/@if\{\{(\w+)\}\}([\s\S]+?)(@else([\s\S]+?))?@endif/g, function($, $1, $2, $3, $4) {
-      return el[$1] ? $2 : ($3 ? $4 : "");
+  var retrieveSource = function(sourceObject, dataPath) {
+    var keys = dataPath.split('.');
+    var source = sourceObject;
+    var key;
+    while(keys.length) {
+      key = keys.shift();
+      if(typeof source === 'object' && key in source) {
+        source = source[key];
+      } else {
+        return false;
+      }
+    }
+    return source;
+  };
+
+  dataArray.forEach(function(data) {
+    var template = templateString.replace(/@if\{\{([\w\s-_\.]+)\}\}([\s\S]+?)(@else([\s\S]+?))?@endif/g, function($, $1, $2, $3, $4) {
+      return retrieveSource(data, $1) ? $2 : ($3 ? $4 : "");
     });
 
-    html += tmpl.replace(/\{\{(\w+)\}\}/g, function($, $1) {
-      return ($1 in el) ? el[$1] : $;
+    htmlString += template.replace(/\{\{([\w\s-_\.]+)\}\}/g, function($, $1) {
+      return retrieveSource(data, $1) || $;
     });
   });
 
-  target.innerHTML = html;
+  if(targetNode) {
+    targetNode.innerHTML = htmlString;
+  } else {
+    return htmlString;
+  }
 }
 
-if(typeof define == "function") {
+if(typeof define === "function") {
   define('front.js/front', [], function() {
-    return { parse: front };
+    return { render: front };
   });
 }
