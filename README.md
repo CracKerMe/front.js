@@ -7,6 +7,35 @@ front.js
 + This project is released under the [MIT license](http://opensource.org/licenses/MIT).
 
 
+**How to Use**
+
++ Parse `sourceData` with `templateString`, and return the result as a string.
+
+```js
+front(templateString, sourceData);
+```
+
++ Parse `sourceData` with `templateString`, then replace content of `targetNode` with the result.
+
+```js
+front(templateString, sourceData, targetNode);
+```
+
++ Parameters  
+  `templateString`  
+  The template to be translated.  
+  Supports *@if/@endif* and *@if/@else/@endif* statements.  
+  Supports retrieve data from deep structure.  
+
+  `sourceData`  
+  The data to be parsed.  
+  Must either be an object or array.  
+  The engine will automatically iterate if passed value is an array.  
+
+  `targetNode` (optional)  
+  The DOM element to place the result.  
+
+
 **Read the blog post**
 
 + not written yet.
