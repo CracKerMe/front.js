@@ -1,3 +1,11 @@
+/**
+ * front.js
+ * Simple JavaScript template engine.
+ *
+ * Author: Leo Deng
+ * URL:    https://github.com/myst729/front.js
+ */
+
 function front(templateString, sourceData, targetNode) {
 
   // ES5 strict mode
