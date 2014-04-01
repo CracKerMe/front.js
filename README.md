@@ -94,7 +94,7 @@ front.js
   
 **Read the blog post**
 
-+ not written yet.
++ http://forcefront.com/2014/farewell-2013/
 
 
 **Try out the demos**

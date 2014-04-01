@@ -59,7 +59,7 @@ function front(templateString, sourceData, targetNode) {
 }
 
 // force.js module definition.
-if(typeof define === "function") {
+if(typeof define === "function" && define.amd) {
   define('front.js/front', [], function() {
     return { render: front };
   });
