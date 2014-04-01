@@ -39,6 +39,7 @@ front.js
 **Example**
 
 + Write your web page like this:
+
   ```html
   <ul id="members"></ul>
   <script type="text/template" id="member">
@@ -77,17 +78,18 @@ front.js
   </script>
   ```
 + And you will get:
+
   ```html
-    <ul id="members">
-      <li class="member">
-        <h3>Gary</h3>
-        <p>Age: 24</p>
-        <p>Job: Web Developer</p>
-      </li>
-      <li class="member">
-        <h3>Fred</h3>
-        <p>Available for hire</p>
-      </li>
+    <ul id="members">  
+      <li class="member">  
+        <h3>Gary</h3>  
+        <p>Age: 24</p>  
+        <p>Job: Web Developer</p>  
+      </li>  
+      <li class="member">  
+        <h3>Fred</h3>  
+        <p>Available for hire</p>  
+      </li>  
     </ul>
   ```
 
