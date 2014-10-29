@@ -20,17 +20,17 @@ front(templateString, sourceData, targetNode);
 ```
 
 + Parameters  
-`templateString`  
+  + `templateString`  
   The template to be translated.  
   Supports *@if/@endif* and *@if/@else/@endif* statements.  
   Supports retrieve data from deep structure.  
 
-`sourceData`  
+  + `sourceData`  
   The data to be parsed.  
   Must either be an object or array.  
   The engine will automatically iterate if passed value is an array.  
 
-`targetNode` (optional)  
+  + `targetNode` (optional)  
   The DOM element to place the result.  
 
 
