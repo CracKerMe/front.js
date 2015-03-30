@@ -40,12 +40,12 @@
 
     <script src="front.min.js"></script>
     <script>
-      var source1 = {name: "Leo", age: 32, sex: 'male', job: "Web Developer"};
+      var source1 = {name: "Leo", age: 33, sex: 'male', job: "Web Developer"};
       var target1 = document.getElementById("target1");
       var template1 = '<div class="person"><h3>{{name}}</h3><p>Age: {{age}}</p><p>Sex: {{sex}}</p><p>Job: {{job}}</p></div>';
       target1.innerHTML = front(template1, source1);
 
-      var source2 = [{name: "Bob", age: 24, sex: "male"}, {name: "Nick", age: 27, sex: "male"}, {name: "Jane", age: 25, sex: "female"}];
+      var source2 = [{name: "Bob", age: 24, sex: "male"}, {name: "Nick", age: 0, sex: "male"}, {name: "Jane", age: 25, sex: "female"}];
       var target2 = document.getElementById("target2");
       var template2 = '<li class="person"><h3>{{name}}</h3><p>Age: {{age}}</p><p>Sex: {{sex}}</p></li>';
       front(template2, source2, target2);

@@ -26,10 +26,10 @@ function front(templateString, sourceData, targetNode) {
         source = source[key];
       } else {
         // Path doesn't exist anymore.
-        return false;
+        return null;
       }
     }
-    return source;
+    return {content: source};
   };
 
   // Fill data into the template.
@@ -45,7 +45,8 @@ function front(templateString, sourceData, targetNode) {
     // Fill data into template.
     htmlString += template.replace(/\{\{([\w\s-_\.]+)\}\}/g, function($, $1) {
       // Skip it if data object doesn't have that key.
-      return retrieveSource(data, $1) || $;
+      var sourceObj = retrieveSource(data, $1);
+      return sourceObj ? sourceObj.content : $;
     });
   });
 
